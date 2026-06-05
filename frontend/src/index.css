@@ -322,6 +322,12 @@ tr:hover td {
   transition: all 0.2s;
 }
 
+select.form-control option {
+  background-color: var(--background);
+  color: var(--text-main);
+  padding: 0.5rem;
+}
+
 .form-control:focus {
   outline: none;
   border-color: var(--primary);

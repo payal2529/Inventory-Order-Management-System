@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import api from '../services/api';
 import { Package, Users, ShoppingCart, AlertTriangle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Dashboard() {
   const [summary, setSummary] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchSummary = async () => {
@@ -45,7 +47,14 @@ export default function Dashboard() {
           <div className="stat-title"><ShoppingCart size={16} /> Total Orders</div>
           <div className="stat-value">{summary.total_orders}</div>
         </div>
-        <div className="stat-card" style={{ borderColor: summary.low_stock_products > 0 ? 'rgba(239, 68, 68, 0.4)' : 'var(--glass-border)' }}>
+        <div 
+          className="stat-card" 
+          style={{ 
+            borderColor: summary.low_stock_products > 0 ? 'rgba(239, 68, 68, 0.4)' : 'var(--glass-border)',
+            cursor: 'pointer' 
+          }}
+          onClick={() => navigate('/inventory')}
+        >
           <div className="stat-title" style={{color: summary.low_stock_products > 0 ? 'var(--danger)' : 'var(--text-muted)'}}><AlertTriangle size={16} /> Low Stock Items</div>
           <div className="stat-value" style={{ color: summary.low_stock_products > 0 ? 'var(--danger)' : 'var(--text-main)' }}>{summary.low_stock_products}</div>
         </div>
