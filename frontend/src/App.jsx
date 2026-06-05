@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="app-container">
       <nav className="sidebar">
-        <h2>Inventoria</h2>
+        <h2 style={{fontSize: '1.35rem', lineHeight: '1.2'}}>Inventory &<br/>Order System</h2>
         <NavLink to="/" className={({isActive}) => isActive ? "nav-item active" : "nav-item"}>
           <LayoutDashboard size={20} /> Dashboard
         </NavLink>
