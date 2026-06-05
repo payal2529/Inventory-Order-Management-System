@@ -11,6 +11,4 @@ services:
 
 databases:
   - name: order-management-db
-    databaseName: order_management
-    user: postgres
     plan: free
